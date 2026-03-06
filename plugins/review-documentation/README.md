@@ -36,7 +36,7 @@ Then install the plugin:
 - Claude Code (Opus 4.6 always available)
 
 **Optional (for multi-LLM comparison):**
-- [Codex CLI](https://github.com/openai/codex) - for GPT 5.3 Codex reviews
+- [Codex CLI](https://github.com/openai/codex) - for GPT 5.4 reviews
 - [Gemini CLI](https://github.com/google/gemini-cli) - for Gemini 3 Pro reviews
 
 The plugin works with just Opus, but cross-validation with multiple models catches more issues.

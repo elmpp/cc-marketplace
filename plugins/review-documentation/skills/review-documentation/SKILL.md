@@ -93,7 +93,7 @@ flowchart TD
 command -v codex >/dev/null 2>&1 || { echo "Codex CLI not installed"; exit 1; }
 
 # Test the actual model - this validates auth AND model availability
-codex exec -m "gpt-5.3-codex" -c reasoning_effort="high" --sandbox workspace-write "Respond with only: READY" 2>&1
+codex exec -m "gpt-5.4" -c reasoning_effort="high" --sandbox workspace-write "Respond with only: READY" 2>&1
 ```
 
 **Check the output for:**
@@ -103,7 +103,7 @@ codex exec -m "gpt-5.3-codex" -c reasoning_effort="high" --sandbox workspace-wri
 
 **If check fails, STOP and tell the user:**
 
-> "Codex CLI check failed. Either the CLI is not installed, you're not logged in (`codex login`), or the gpt-5.3-codex model is not available with your account. Select Opus 4.6 only for this review, or fix your Codex setup first."
+> "Codex CLI check failed. Either the CLI is not installed, you're not logged in (`codex login`), or the gpt-5.4 model is not available with your account. Select Opus 4.6 only for this review, or fix your Codex setup first."
 
 ### Gemini Pre-flight (if Gemini selected)
 
@@ -148,7 +148,7 @@ questions: [
     multiSelect: true,
     options: [
       { label: "Opus 4.6 (Recommended)", description: "Claude Opus 4.6 - strong reasoning, nuanced analysis" },
-      { label: "GPT 5.3 Codex", description: "OpenAI's latest via Codex CLI - different perspective" },
+      { label: "GPT 5.4", description: "OpenAI's latest via Codex CLI - different perspective" },
       { label: "Gemini 3 Pro", description: "Google's latest via Gemini CLI - third perspective" }
     ]
   },
@@ -566,7 +566,7 @@ REMINDER: This is a READ-ONLY review phase. Do NOT modify any files. Changes are
 #   run_in_background: true    <-- REQUIRED FOR PARALLEL EXECUTION
 #   timeout: 900000            <-- 15 minutes (GPT reviews can take time)
 
-codex exec -m "gpt-5.3-codex" -c reasoning_effort="high" --sandbox workspace-write "$(cat <<'PROMPT'
+codex exec -m "gpt-5.4" -c reasoning_effort="high" --sandbox workspace-write "$(cat <<'PROMPT'
 [Sub-agent brief above]
 
 Documentation to review:
@@ -634,7 +634,7 @@ PROMPT
 
 **Notes on Codex CLI:**
 
-- Model: `gpt-5.3-codex` with high reasoning effort
+- Model: `gpt-5.4` with high reasoning effort
 - `--sandbox workspace-write` - can read/write files in workspace, run shell commands (including `bd` which needs SQLite WAL write access)
 - **Timeout:** Set Bash timeout to 15 minutes (`timeout: 900000` ms) - GPT reviews can take time
 - **Background:** Use `run_in_background: true` on the Bash call - THIS IS CRITICAL
@@ -962,7 +962,7 @@ List any:
 
 ## Review Configuration
 
-- **LLMs Used:** [Opus 4.6 / GPT 5.3 Codex / Gemini 3 Pro] (single agent)
+- **LLMs Used:** [Opus 4.6 / GPT 5.4 / Gemini 3 Pro] (single agent)
 - **Documents Reviewed:** [List]
 - **Codebase:** [Path or N/A]
 - **Note:** Cross-validation not performed (single agent review)

@@ -205,14 +205,14 @@ flowchart TD
 
 ### GPT Pre-flight (if GPT selected)
 
-If the user selects GPT 5.3 Codex, verify Codex CLI is available **before proceeding**:
+If the user selects GPT 5.4, verify Codex CLI is available **before proceeding**:
 
 ```bash
 # Check Codex CLI is installed
 command -v codex >/dev/null 2>&1 || { echo "Codex CLI not installed"; exit 1; }
 
 # Test the actual model
-codex exec -m "gpt-5.3-codex" -c reasoning_effort="high" --sandbox read-only "Respond with only: READY" 2>&1
+codex exec -m "gpt-5.4" -c reasoning_effort="high" --sandbox read-only "Respond with only: READY" 2>&1
 ```
 
 **If check fails, STOP and tell the user:**
@@ -262,7 +262,7 @@ questions: [
     multiSelect: true,
     options: [
       { label: "Opus 4.6 (Recommended)", description: "Claude Opus 4.6 - strong reasoning, nuanced analysis" },
-      { label: "GPT 5.3 Codex", description: "OpenAI's latest via Codex CLI - different perspective" },
+      { label: "GPT 5.4", description: "OpenAI's latest via Codex CLI - different perspective" },
       { label: "Gemini 3 Pro", description: "Google's latest via Gemini CLI - third perspective" }
     ]
   },
@@ -684,7 +684,7 @@ REMINDER: This is a READ-ONLY review. Do NOT modify any files - no Edit or Write
 ```bash
 # Bash tool call with run_in_background: true, timeout: 900000 (15 minutes)
 
-codex exec -m "gpt-5.3-codex" -c reasoning_effort="high" --sandbox workspace-write "$(cat <<'PROMPT'
+codex exec -m "gpt-5.4" -c reasoning_effort="high" --sandbox workspace-write "$(cat <<'PROMPT'
 [Sub-agent brief above]
 
 SPECIFICATION to review against:
