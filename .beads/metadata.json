@@ -1,7 +1,8 @@
 {
-  "backend": "dolt",
   "database": "dolt",
-  "dolt_database": "gt_marketplace",
+  "backend": "dolt",
   "dolt_mode": "server",
-  "dolt_server_port": 3307
+  "dolt_server_port": 3307,
+  "dolt_database": "gt_marketplace",
+  "project_id": "a38af6b7-4651-44cf-86f9-205fa580e372"
 }
